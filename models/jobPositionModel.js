@@ -9,16 +9,16 @@ function JobPositionModel() {
     jpUtil = new JPUtil(config.es.url);
 }
 
-JobPositionModel.prototype.findAll = function (undefined, callback) {
-    esUtil.findAll(config.es.indexName, config.es.type, function (err, result) {
+JobPositionModel.prototype.findAll = function (req, callback) {
+    jpUtil.findAll(config.es.indexName, config.es.type, function (err, result) {
         callback(err, result);
     });
 };
 
 JobPositionModel.prototype.getById = function (id, callback) {
-    esUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
+    jpUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
         if (exist) {
-            esUtil.displayDocument(config.es.indexName, config.es.type, id, function (err, display) {
+            jpUtil.displayDocument(config.es.indexName, config.es.type, id, function (err, display) {
                 callback(err, display);
             });
         } else {
@@ -27,16 +27,16 @@ JobPositionModel.prototype.getById = function (id, callback) {
     });
 };
 
-JobPositionModel.prototype.create = function (value, callback) {
-    esUtil.addDocument(config.es.indexName, config.es.type, value, function (err, bindingData) {
+JobPositionModel.prototype.create = function (req, callback) {
+    jpUtil.addDocument(config.es.indexName, config.es.type, value, function (err, bindingData) {
         callback(err, bindingData);
     });
 };
 
 JobPositionModel.prototype.update = function (id, data, callback) {
-    esUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
+    jpUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
         if (exist) {
-            esUtil.updateDocument(config.es.indexName, config.es.type, id, data, function (err, display) {
+            jpUtil.updateDocument(config.es.indexName, config.es.type, id, data, function (err, display) {
                 callback(err, display);
             });
         } else {
@@ -45,9 +45,9 @@ JobPositionModel.prototype.update = function (id, data, callback) {
     });
 };
 JobPositionModel.prototype.remove = function (id, callback) {
-    esUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
+    jpUtil.isDocumentExist(config.es.indexName, config.es.type, id, function (err, exist) {
         if (exist) {
-            esUtil.deleteDocument(config.es.indexName, config.es.type, id, function (err, display) {
+            jpUtil.deleteDocument(config.es.indexName, config.es.type, id, function (err, display) {
                 callback(err, display);
             });
         } else {

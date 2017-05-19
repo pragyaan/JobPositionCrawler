@@ -6,10 +6,10 @@ var express = require("express"),
 var jpc = new JobPositionController;
 var router = express.Router();
 
-router.get('/',jpc.get.bind());
-router.post('/',jpc.create.bind());
-router.get('/:id',jpc.getById.bind());
-router.put('/:id',jpc.update.bind());
-router.delete('/:id',jpc.remove.bind());
+router.get('/',jpc.get.bind(jpc));
+router.post('/',jpc.create.bind(jpc));
+router.get('/:id',jpc.getById.bind(jpc));
+router.put('/:id',jpc.update.bind(jpc));
+router.delete('/:id',jpc.remove.bind(jpc));
 
 module.exports = router;

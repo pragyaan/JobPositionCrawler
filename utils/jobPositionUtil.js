@@ -56,5 +56,14 @@ JPUtil.prototype.deleteDocument = function (indexName, type, id, callback) {
         callback(err, data);
     });
 };
+JPUtil.prototype.displayDocument = function (indexName, type, id, callback) {
+    this.client.get({
+        index: indexName,
+        type: type,
+        id: id
+    }, function (err, data) {
+        callback(err, data);
+    });
+};
 
 module.exports = JPUtil;
