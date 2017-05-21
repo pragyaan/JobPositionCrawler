@@ -1,10 +1,8 @@
-/**
- * Created by Dinesh Reddy Maddula on 5/18/2017.
- */
+
 var express = require("express"),
-    JobPositionController = require("../controllers/jobPositionController.js");
-var jpc = new JobPositionController;
-var router = express.Router();
+    JobPositionController = require("../controllers/jobPositionController.js"),
+    jpc = new JobPositionController,
+    router = express.Router();
 
 router.get('/',jpc.get.bind(jpc));
 router.post('/',jpc.create.bind(jpc));

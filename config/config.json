@@ -2,6 +2,6 @@
   "es": {
     "url": "104.197.155.27:9200",
     "indexName": "job",
-    "type": "position"
+    "type": "positions"
   }
 }

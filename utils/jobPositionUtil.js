@@ -5,7 +5,7 @@ var elasticsearch = require('elasticsearch'),
 function JPUtil(url) {
     this.client = new elasticsearch.Client({
         host: url,
-        log: 'trace'
+        log: 'debug'
     });
 }
 JPUtil.prototype.findAll = function (indexName, type, callback) {

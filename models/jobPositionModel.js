@@ -1,9 +1,5 @@
-var _ = require('lodash'),
-    config = require('../config/config.json'),
+var config = require('../config/config.json'),
     JPUtil = require('../utils/jobPositionUtil');
-
-
-
 
 function JobPositionModel() {
     jpUtil = new JPUtil(config.es.url);
@@ -27,8 +23,8 @@ JobPositionModel.prototype.getById = function (id, callback) {
     });
 };
 
-JobPositionModel.prototype.create = function (req, callback) {
-    jpUtil.addDocument(config.es.indexName, config.es.type, value, function (err, bindingData) {
+JobPositionModel.prototype.create = function (data, callback) {
+    jpUtil.addDocument(config.es.indexName, config.es.type, data, function (err, bindingData) {
         callback(err, bindingData);
     });
 };
