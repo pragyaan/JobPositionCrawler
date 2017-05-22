@@ -1,4 +1,3 @@
-
 var express = require("express"),
     JobPositionController = require("../controllers/jobPositionController.js"),
     jpc = new JobPositionController,

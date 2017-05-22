@@ -1,4 +1,4 @@
-var JobPositionModel = require("../models/jobPositionModel.js");
+var JobPositionModel = require("../models/jobPositionModel");
 
 
 function JobPositionController() {
@@ -58,7 +58,7 @@ JobPositionController.prototype.remove = function (req, res) {
         } else if (!data) {
             res.status(404).json({status: 404, msg: "Record not found"});
         } else {
-            res.status(200).json(data);
+            res.status(204).json(data);
         }
     });
 };
